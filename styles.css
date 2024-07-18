@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #ffffff;
+}
+
+.card {
+    width: 3.5in;
+    height: 2in;
+    background-color: #F0EAD6; /* Changed to eggshell white */
+    color: black;
+    perspective: 1000px;
+    cursor: pointer;
+    position: relative;
+}
+
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000;
+    padding: 1em;
+    box-sizing: border-box;
+    transition: transform 1s;
+}
+
+.headshot {
+    width: 100px; /* Adjust width as needed */
+    height: 130px; /* Adjust height as needed, increased by 1.5 cm (approximately 56.7 pixels) */
+    margin-bottom: 1em;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+.card-front {
+    transform: rotateY(0deg);
+    padding-top: 1.5em; /* Added top padding */
+    padding-bottom: 1.5em; /* Added bottom padding */
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    background-color: #ffffff;
+    display: none;
+}
+
+.card.expanded .card-front {
+    transform: rotateY(-180deg);
+}
+
+.card.expanded .card-back {
+    transform: rotateY(0deg);
+    display: flex;
+}
+
+.card.expanded {
+    width: 8.5in;
+    height: 80vh; /* Changed to cover 80% of the viewport height */
+    transition: width 1s, height 1s;
+}
+
+.card h1 {
+    font-size: 1.2em; /* Reduced by 3 points */
+    color: #0044FF;
+}
+
+.card h2 {
+    font-size: 0.9em; /* Reduced by 3 points */
+    color: #0044FF;
+    font-style: italic;
+    margin-bottom: 0.5em;
+}
+
+.card .columns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 1em;
+}
+
+.card .columns .column-left,
+.card .columns .column-right {
+    width: 45%;
+    text-align: center;
+    font-size: 0.75em;
+}
+
+.card .cv-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 2em;
+    box-sizing: border-box;
+    overflow-y: auto; /* Set to auto to avoid content being cut off */
+}
+
+.card .cv-column {
+    width: 45%;
+    font-size: 0.75em; /* Reduced by 3 points */
+}
+
+.card .cv-column h2 {
+    font-size: 1em;
+    color: #0044FF;
+}
+
+.card .cv-column p {
+    margin: 0.5em 0;
+}
+
+.click-to-continue {
+    font-size: 0.7em; /* Reduced by 3 points */
+    font-style: italic;
+    margin-top: auto;
+}
